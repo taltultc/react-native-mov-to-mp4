@@ -22,10 +22,11 @@ RCT_EXPORT_METHOD(convertMovToMp4: (NSString*)filename
 
 
 
-    
+
 
     NSURL *ouputURL2 = [NSURL fileURLWithPath:[docDir stringByAppendingPathComponent:outputPath]];
-    NSLog(@"fsdf %@", ouputURL2);
+    //NSLog(@"fsdf %@", ouputURL2);
+    NSString *newFile = [ouputURL2 absoluteString];
     NSURL *urlFile = [NSURL fileURLWithPath:filename];
     AVURLAsset *avAsset = [AVURLAsset URLAssetWithURL:urlFile options:nil];
     NSArray *compatiblePresets = [AVAssetExportSession
@@ -51,8 +52,8 @@ RCT_EXPORT_METHOD(convertMovToMp4: (NSString*)filename
             case AVAssetExportSessionStatusCompleted:
             {
                 //Video conversion finished
-                NSLog(@"Successful!");
-                successCallback(@[@"Done Converting"]);
+                //NSLog(@"Successful!");
+                successCallback(@[newFile]);
             }
                 break;
             default:
