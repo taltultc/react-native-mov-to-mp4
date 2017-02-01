@@ -1,7 +1,7 @@
 # react-native-mov-to-mp4
 Convert mov file to mp4 
 
-##### iOS only!
+
 ## Installation
 ```ruby
 npm install react-native-mov-to-mp4 --save
