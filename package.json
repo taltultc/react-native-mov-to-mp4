@@ -1,5 +1,17 @@
 {
-  "name": "movToMp4",
+  "name": "react-native-mov-to-mp4",
   "version": "0.0.1",
-  "keywords": "react-native"
+  "description": "React Native convert mov files to mp4",
+  "main": "movToMp4.ios.js",
+  "keywords": [
+    "react-native",
+    "react-component",
+    "ios",
+    "mov",
+    "mp4",
+    "convert",
+    "file",
+    "camera"
+  ],
+  "author": "Tal Cohen <taltultc@yahoo.com>"
 }
