@@ -12,7 +12,7 @@ and import :
 import MovToMp4 from 'react-native-mov-to-mp4';
 ```
 
-
+#### convertMovToMp4(videoFilePath,newFilenameMp4,callback)
 
 ## Usage:
 ```javascript
