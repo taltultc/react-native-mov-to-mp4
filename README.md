@@ -1,6 +1,8 @@
 # react-native-mov-to-mp4
-Convert mov file to mp4 
 
+[![npm](https://img.shields.io/badge/npm%20package-0.0.7-brightgreen.svg)](https://www.npmjs.com/package/react-native-mov-to-mp4)
+
+Convert mov file to mp4 
 
 ## Installation
 ```ruby
