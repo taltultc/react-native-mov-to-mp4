@@ -1,6 +1,4 @@
-//----Old import---//
-//#import "RCTBridgeModule.h"
-#import <React/RCTBridgeModule.h>
+#import "RCTBridgeModule.h"
 
 @interface movToMp4 : NSObject <RCTBridgeModule>
 
