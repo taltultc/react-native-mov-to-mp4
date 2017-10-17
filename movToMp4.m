@@ -46,8 +46,9 @@ RCT_EXPORT_METHOD(convertMovToMp4: (NSString*)filename
         {
             case AVAssetExportSessionStatusFailed:
             {
-                NSError *error = [NSError errorWithDomain:domain code: -90 userInfo:nil];
-                reject(@"Failed", @"Export session failed", error);
+                NSError* error = exportSession.error;
+                NSString *codeWithDomain = [NSString stringWithFormat:@"E%@%zd", error.domain.uppercaseString, error.code];
+                reject(codeWithDomain, error.localizedDescription, error);
                 break;
             }
             case AVAssetExportSessionStatusCancelled:
@@ -58,11 +59,9 @@ RCT_EXPORT_METHOD(convertMovToMp4: (NSString*)filename
             }
             case AVAssetExportSessionStatusCompleted:
             {
-                //Video conversion finished
-                //NSLog(@"Successful!");
                 resolve(@[newFile]);
-            }
                 break;
+            }
             default:
             {
                 NSError *error = [NSError errorWithDomain:domain code: -91 userInfo:nil];
