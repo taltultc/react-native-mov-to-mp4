@@ -12,7 +12,8 @@ RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(convertMovToMp4: (NSString*)filename
                   toPath:(NSString*)outputPath
-                   callback:(RCTResponseSenderBlock)successCallback)
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 {
     // Your implementation here
 
@@ -33,7 +34,7 @@ RCT_EXPORT_METHOD(convertMovToMp4: (NSString*)filename
                                   exportPresetsCompatibleWithAsset:avAsset];
     AVAssetExportSession *exportSession = [[AVAssetExportSession alloc]initWithAsset:avAsset presetName:AVAssetExportPresetHighestQuality];
     //AVAssetExportPresetMediumQuality
-
+    NSString* domain = @"MovToMp4";
     NSString* documentsDirectory=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     exportSession.outputURL = ouputURL2;
     //set the output file format if you want to make it in other file format (ex .3gp)
@@ -44,20 +45,29 @@ RCT_EXPORT_METHOD(convertMovToMp4: (NSString*)filename
         switch ([exportSession status])
         {
             case AVAssetExportSessionStatusFailed:
-                NSLog(@"Export session failed");
+            {
+                NSError* error = exportSession.error;
+                NSString *codeWithDomain = [NSString stringWithFormat:@"E%@%zd", error.domain.uppercaseString, error.code];
+                reject(codeWithDomain, error.localizedDescription, error);
                 break;
+            }
             case AVAssetExportSessionStatusCancelled:
-                NSLog(@"Export canceled");
+            {
+                NSError *error = [NSError errorWithDomain:domain code: -91 userInfo:nil];
+                reject(@"Cancelled", @"Export canceled", error);
                 break;
+            }
             case AVAssetExportSessionStatusCompleted:
             {
-                //Video conversion finished
-                //NSLog(@"Successful!");
-                successCallback(@[newFile]);
+                resolve(@[newFile]);
+                break;
             }
-                break;
             default:
+            {
+                NSError *error = [NSError errorWithDomain:domain code: -91 userInfo:nil];
+                reject(@"Unknown", @"Unknown status", error);
                 break;
+            }
         }
     }];
 
