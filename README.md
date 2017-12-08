@@ -2,7 +2,7 @@
 
 
 
-Convert mov file to mp4
+Convert mov file to mp4 
 
 ## Installation
 
@@ -30,12 +30,11 @@ import MovToMp4 from 'react-native-mov-to-mp4';
 ## Usage:
 ```javascript
             var filename = Date.now().toString();
-            MovToMp4.convertMovToMp4(data.path, filename + ".mp4")
-              .then(function (results) {
-                //here you can upload the video...
-                console.log(results);
-              });
-
+            MovToMp4.convertMovToMp4(data.path, filename + ".mp4", function (results) {
+              //here you can upload the video...
+              console.log(results);
+            });
+          
   ```
 ## Example
 this example use react-native-camera
@@ -65,11 +64,10 @@ render() {
       this.camera.capture()
           .then((data) => {
             var filename = Date.now().toString();
-            return MovToMp4.convertMovToMp4(data.path, filename + ".mp4");
-          })
-          .then(function (results) {
-            //here you can upload the video...
-            console.log(results);
+            MovToMp4.convertMovToMp4(data.path, filename + ".mp4", function (results) {
+              //here you can upload the video...
+              console.log(results);
+            });
           })
           .catch(err => console.error(err));
     }

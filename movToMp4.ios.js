@@ -2,16 +2,16 @@
  * @providesModule movToMp4
  * @flow
  */
-import React, { Component, PropTypes } from "react";
+import React, { Component, PropTypes } from 'react';
 import {
-  DeviceEventEmitter, // android
-  NativeAppEventEmitter, // ios
-  NativeModules,
-  Platform,
-  StyleSheet,
-  requireNativeComponent,
-  View
-} from "react-native";
+    DeviceEventEmitter, // android
+    NativeAppEventEmitter, // ios
+    NativeModules,
+    Platform,
+    StyleSheet,
+    requireNativeComponent,
+    View,
+} from 'react-native';
 
 //var NativemovToMp4 = require('NativeModules').movToMp4;
 var NativemovToMp4 = NativeModules.movToMp4;
@@ -20,8 +20,8 @@ var NativemovToMp4 = NativeModules.movToMp4;
  */
 
 var movToMp4 = {
-  convertMovToMp4: function(filename, dest) {
-    return NativemovToMp4.convertMovToMp4(filename, dest);
+  convertMovToMp4: function(filename, dest, cb) {
+    NativemovToMp4.convertMovToMp4(filename, dest, cb);
   }
 };
 
