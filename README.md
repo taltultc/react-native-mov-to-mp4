@@ -23,7 +23,7 @@ $ npm install --save react-native-mov-to-mp4@0.2
 #### For react-native < 0.40:
 
 ```ruby
-yarn add react-native-mov-to-mp4@0.2
+yarn add react-native-mov-to-mp4@0.1
 ```
 
 (or)
