@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.authors      = package['author']
   s.platform     = :ios, "9.0"
 
-  s.source       = { :git => "https://github.com/taltultc/react-native-mov-to-mp4.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/snobear/react-native-mov-to-mp4", :tag => "v#{s.version}" }
   s.source_files  = "**/*.{h,m}"
 
   s.dependency 'React'

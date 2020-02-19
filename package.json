@@ -2,10 +2,10 @@
   "name": "react-native-mov-to-mp4",
   "version": "0.2.1",
   "description": "React Native convert mov files to mp4",
-  "main": "movToMp4.ios.js",
+  "main": "index",
   "repository": {
     "type": "git",
-    "url": "https://github.com/taltultc/react-native-mov-to-mp4.git"
+    "url": "https://github.com/snobear/react-native-mov-to-mp4"
   },
   "keywords": [
     "react-native",
