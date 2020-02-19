@@ -1,6 +1,23 @@
 # react-native-mov-to-mp4
 
-Convert mov file to mp4 
+Convert mov file to mp4 for cross-platform playback compatibility.
+
+## About this Fork
+
+The original repo is no longer maintained and has a few issues. This one adds a podspec and fixes android import issues. You'll still likely want to check the platform when calling the convert function, e.g.:
+
+```
+import MovToMp4 from 'react-native-mov-to-mp4';
+
+if (Platform.OS === 'ios') {
+  const filename = Date.now().toString();
+  MovToMp4.convertMovToMp4(data.path, filename + ".mp4")
+    .then(function (results) {
+      //here you can upload the video...
+      console.log(results);
+    });
+}
+```
 
 ## Installation
 
