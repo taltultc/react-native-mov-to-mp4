@@ -14,4 +14,4 @@ var movToMp4 = {
   }
 };
 
-module.exports = movToMp4;
+export default movToMp4;

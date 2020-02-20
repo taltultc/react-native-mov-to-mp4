@@ -1,84 +1,55 @@
 # react-native-mov-to-mp4
 
-Convert `.mov` file to `.mp4` file format
+Convert mov file to mp4 for cross-platform playback compatibility.
 
 ## Installation
 
-#### 1. Add react-native-mov-to-mp4 to your dependencies
+**react-native >= 0.40:**
 
-#### For react-native >= 0.40:
-
-```ruby
-yarn add react-native-mov-to-mp4@0.2
+```
+npm install react-native-mov-to-mp4 --save
 ```
 
-(or)
+also for iOS:
 
-For npm use
-
-```ruby
-$ npm install --save react-native-mov-to-mp4@0.2
+```
+cd ios && pod install && cd ..
 ```
 
-#### For react-native < 0.40:
+**react-native < 0.40:**
 
-```ruby
-yarn add react-native-mov-to-mp4@0.1
+```
+npm install react-native-mov-to-mp4@0.1 --save
 ```
 
-(or)
+link react-native-mov-to-mp4:
 
-For npm use
-
-```ruby
-$ npm install react-native-mov-to-mp4@0.1 --save
-```
-
-#### 2. Link native dependencies
-
-#### For react-native >= 0.60, autolinking will take care of the link step. Don't forget to run `pod install` in the `ios/` directory.
-
-#### For react native < 0.60, run:
 
 ```ruby
 react-native link react-native-mov-to-mp4
 ```
 
-#### 3. Import the converter module into your component
-
 ```javascript
-import MovToMp4 from "react-native-mov-to-mp4";
+import MovToMp4 from 'react-native-mov-to-mp4';
+
+const filename = Date.now().toString();
+MovToMp4.convertMovToMp4(data.path, filename + ".mp4")
+  .then(function (results) {
+    //here you can upload the video...
+    console.log(results);
+  });
+          
 ```
 
-## API Reference
+**Parameters:**
 
----
-
-`convertMovToMp4`
-
-convert a .mov file to .mp4 file format.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| void | No       | iOS      |
-
-**convertMovToMp4(videoFilePath, newFilenameMp4, callback)**
-
-Example:
-
-```javascript
-var filename = Date.now().toString();
-MovToMp4.convertMovToMp4(data.path, filename + ".mp4", function(results) {
-  //here you can upload the video...
-  console.log(results);
-});
 ```
-
----
+convertMovToMp4(videoFilePath,newFilenameMp4,callback)
+```
 
 ## Example
 
-this example use react-native-camera
+this example use [react-native-camera](https://github.com/react-native-community/react-native-camera)
 
 ```javascript
 render() {
@@ -105,8 +76,9 @@ render() {
       this.isRec = true;
       this.camera.capture()
           .then((data) => {
-            var filename = Date.now().toString();
-            MovToMp4.convertMovToMp4(data.path, filename + ".mp4", function (results) {
+            const filename = Date.now().toString();
+            MovToMp4.convertMovToMp4(data.path, filename + ".mp4")
+              .then(function (results) {
               //here you can upload the video...
               console.log(results);
             });
