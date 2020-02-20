@@ -24,12 +24,11 @@ npm install react-native-mov-to-mp4@0.1 --save
 
 link react-native-mov-to-mp4:
 
+
 ```ruby
 react-native link react-native-mov-to-mp4
 ```
 
-
-## Usage:
 ```javascript
 import MovToMp4 from 'react-native-mov-to-mp4';
 
@@ -40,7 +39,7 @@ MovToMp4.convertMovToMp4(data.path, filename + ".mp4")
     console.log(results);
   });
           
-  ```
+```
 
 **Parameters:**
 
@@ -49,7 +48,9 @@ convertMovToMp4(videoFilePath,newFilenameMp4,callback)
 ```
 
 ## Example
-this example use react-native-camera
+
+this example use [react-native-camera](https://github.com/react-native-community/react-native-camera)
+
 ```javascript
 render() {
     return (
@@ -85,7 +86,7 @@ render() {
           .catch(err => console.error(err));
     }
   }
-  ```
+```
 
 ## License
 

@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.name         = package['name']
   s.version      = package['version']
   s.summary      = package['description']
+  s.license      = package['license']
   s.license      = { :type => 'BSD' }
   s.homepage     = 'https://github.com/taltultc/react-native-mov-to-mp4'
   s.authors      = package['author']
@@ -16,3 +17,4 @@ Pod::Spec.new do |s|
 
   s.dependency 'React'
 end
+
